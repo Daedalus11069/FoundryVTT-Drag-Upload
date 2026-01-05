@@ -341,6 +341,8 @@ async function CreateActor(event, file) {
             default: types[0],
             close: () => {}
            });
+           d.options.classes.push('drag-upload-dialog');
+           
            console.debug("Creating dialog: ");
            console.debug(d);
 

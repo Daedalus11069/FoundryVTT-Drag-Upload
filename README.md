@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/Foundry-v11-informational)
+![](https://img.shields.io/badge/Foundry-v13-informational)
 
 This is a fork of [the original unmaintained module](https://github.com/cswendrowski/FoundryVTT-Drag-Upload)
 
@@ -14,7 +14,7 @@ If the file is an audio file (.mp3, .mp4, .wav, .flac), it will be created as an
 
 Otherwise, it will be treated as an Image and created based on the current active layer:
 
-* Token: 1x1 Actor with Token
-* Tile: Tile of the same size as the image
-* Notes: Journal with a corresponding Journal Pin
-* Other: Same as Token
+- Token: 1x1 Actor with Token
+- Tile: Tile of the same size as the image
+- Notes: Journal with a corresponding Journal Pin
+- Other: Same as Token
