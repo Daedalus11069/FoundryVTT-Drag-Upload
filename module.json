@@ -6,23 +6,20 @@
   "version": "2.3.2",
   "minimumCoreVersion": "9",
   "compatibleCoreVersion": "13",
-  "compatibility" : {
-    "minimum" : "9",
-    "verified" : "13"
+  "compatibility": {
+    "minimum": "9",
+    "verified": "13"
   },
   "author": "Cody Swendrowski <cody@swendrowski.us>",
-  "authors": [ { "name" : "Cody Swendrowski <cody@swendrowski.us>"},  { "name" : "Wild Soft <wildsoft.team@gmail.com>"} ],
-  "esmodules": [
-    "./dragupload.js"
+  "authors": [
+    { "name": "Cody Swendrowski <cody@swendrowski.us>" },
+    { "name": "Wild Soft <wildsoft.team@gmail.com>" }
   ],
-  "scripts": [
-  ],
-  "styles": [
-    "./styles/dragupload.css"
-  ],
-  "languages": [
-  ],
+  "esmodules": ["./dragupload.js"],
+  "scripts": [],
+  "styles": ["./styles/dragupload.css"],
+  "languages": [],
   "url": "https://github.com/Daedalus11069/FoundryVTT-Drag-Upload",
-  "manifest": "https://github.com/Daedalus11069/FoundryVTT-Drag-Upload/releases/download/latest/module.json",
-  "download": "https://github.com/Daedalus11069/FoundryVTT-Drag-Upload/releases/download/latest/module.zip"
+  "manifest": "https://github.com/Daedalus11069/FoundryVTT-Drag-Upload/releases/latest/download/module.json",
+  "download": "https://github.com/Daedalus11069/FoundryVTT-Drag-Upload/releases/latest/download/module.zip"
 }
