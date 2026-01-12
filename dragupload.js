@@ -30,7 +30,11 @@ Hooks.once("init", async () => {
   });
 
   try {
-    const buckets = await FilePicker.browse("s3", "");
+    const buckets =
+      await foundry.applications.apps.FilePicker.implementation.browse(
+        "s3",
+        ""
+      );
     let bucketChoices = {};
     for (let bucket of buckets.dirs) {
       bucketChoices[bucket] = bucket;
@@ -42,8 +46,9 @@ Hooks.once("init", async () => {
       type: String,
       default: usingTheForge
         ? ""
-        : FilePicker.S3_BUCKETS?.length > 0
-        ? FilePicker.S3_BUCKETS[0]
+        : foundry.applications.apps.FilePicker.implementation.S3_BUCKETS
+            ?.length > 0
+        ? foundry.applications.apps.FilePicker.implementation.S3_BUCKETS[0]
         : "",
       choices: bucketChoices,
       onChange: async () => {
@@ -58,7 +63,7 @@ Hooks.once("ready", async function () {
   await initializeDragUpload();
 
   // Enable binding
-  new DragDrop({
+  new foundry.applications.ux.DragDrop.implementation({
     callbacks: {
       drop: handleDrop
     }
@@ -101,9 +106,13 @@ async function createFoldersIfMissing() {
 async function createFolderIfMissing(folderPath) {
   const source = game.settings.get("dragupload", "fileUploadSource");
   try {
-    let result = await FilePicker.browse(source, folderPath);
+    let result =
+      await foundry.applications.apps.FilePicker.implementation.browse(
+        source,
+        folderPath
+      );
     if (!result.dir.includes(folderPath))
-      await FilePicker.createDirectory(
+      await foundry.applications.apps.FilePicker.implementation.createDirectory(
         source,
         folderPath,
         source === "s3"
@@ -112,7 +121,7 @@ async function createFolderIfMissing(folderPath) {
       );
   } catch (error) {
     try {
-      await FilePicker.createDirectory(
+      await foundry.applications.apps.FilePicker.implementation.createDirectory(
         source,
         folderPath,
         source === "s3"
@@ -272,7 +281,7 @@ async function CreateAmbientAudio(event, file) {
   if (file.isExternalUrl) {
     response = { path: file.url };
   } else {
-    response = await FilePicker.upload(
+    response = await foundry.applications.apps.FilePicker.implementation.upload(
       source,
       window.dragUpload.targetFolder + "/ambient",
       file,
@@ -303,7 +312,7 @@ async function CreateTile(event, file, overhead) {
   if (file.isExternalUrl) {
     response = { path: file.url };
   } else {
-    response = await FilePicker.upload(
+    response = await foundry.applications.apps.FilePicker.implementation.upload(
       source,
       window.dragUpload.targetFolder + "/tiles",
       file,
@@ -364,7 +373,7 @@ async function CreateJournalPin(event, file) {
   if (file.isExternalUrl) {
     response = { path: file.url };
   } else {
-    response = await FilePicker.upload(
+    response = await foundry.applications.apps.FilePicker.implementation.upload(
       source,
       window.dragUpload.targetFolder + "/journals",
       file,
@@ -407,7 +416,7 @@ async function CreateActor(event, file) {
   if (file.isExternalUrl) {
     response = { path: file.url };
   } else {
-    response = await FilePicker.upload(
+    response = await foundry.applications.apps.FilePicker.implementation.upload(
       source,
       window.dragUpload.targetFolder + "/tokens",
       file,
